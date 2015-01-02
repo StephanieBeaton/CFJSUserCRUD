@@ -4,7 +4,8 @@
 
 var usersCRUDApp = angular.module('usersCRUDApp', [
   'ngRoute',
-  'userCRUDControllers'
+  'userCRUDControllers',
+  'userCRUDServices'
 ]);
 
 
