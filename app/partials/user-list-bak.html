@@ -1,0 +1,67 @@
+
+  <!--
+  <ul>
+    <li ng-repeat="user in users">
+      <span>{{user.first_name}}</span>
+      <p>{{user.last_name}}</p>
+      <p>{{user.email_address}}</p>
+    </li>
+  </ul>
+
+  <p>Total number of phones: {{users.length}}</p>
+
+  <p>Hello, {{temp}}!</p>
+
+  <table>
+    <tr><th>row number</th></tr>
+    <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
+  </table>
+  -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      Search: <input ng-model="query">
+
+      query = {{query}}
+
+      <p>Sort by:<p>
+      <select ng-model="orderProp">
+        <option value="last_name">Alphabetical</option>
+        <option value="-age">Oldest to Youngest</option>
+      </select>
+
+      <p>Sort by: {{orderProp}}</p>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <!--
+      <ul class="phones">
+        <li ng-repeat="user in users | filter:query | orderBy:orderProp">
+          {{user.first_name}}
+          <p>{{user.last_name}}</p>
+          <p>{{user.email_address}}</p>
+          <p>{{user.age}}</p>
+        </li>
+      </ul>
+      -->
+
+      <ul class="phones">
+        <li ng-repeat="user in users | filter:query | orderBy:orderProp" class="thumbnail">
+          <a href="#/users/{{user.id}}" class="thumb"><img ng-src="{{user.imageUrl}}"></a>
+          <a href="#/users/{{user.id}}">{{user.first_name}}</a>
+          <p>{{user.last_name}}</p>
+          <p>{{user.email_address}}</p>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+</div>
+
+<pre>{{users | filter:query | orderBy:orderProp | json}}</pre>
